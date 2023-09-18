@@ -1,0 +1,104 @@
+{
+    "pairs": [
+        {
+            "patterns": [
+                "hi",
+                "hello",
+                "hey",
+                "howdy",
+                "greetings"
+            ],
+            "responses": [
+                "Hello!",
+                "Hi there!",
+                "Hey! How can I help you today?"
+            ]
+        },
+        {
+            "patterns": [
+                "tell me about Gitam University",
+                "what can you tell me about Gitam University",
+                "Gitam University details"
+            ],
+            "responses": [
+                "Gitam University, also known as Gandhi Institute of Technology and Management, is a renowned institution located in Visakhapatnam, Andhra Pradesh, India.",
+                "Gitam University is a prestigious educational institution situated in Visakhapatnam, Andhra Pradesh, India.",
+                "Gitam University, or Gandhi Institute of Technology and Management, is a well-known university based in Visakhapatnam, Andhra Pradesh, India."
+            ]
+        },
+        {
+            "patterns": [
+                "list of universities in India",
+                "universities in India"
+            ],
+            "responses": [
+                "India is home to numerous universities, including prominent ones like the University of Delhi, Jawaharlal Nehru University, and Banaras Hindu University, among others.",
+                "There are many universities in India, some of which are highly esteemed, such as the University of Delhi and Jawaharlal Nehru University."
+            ]
+        },
+        {
+            "patterns": [
+                "top universities in India",
+                "best universities in India"
+            ],
+            "responses": [
+                "Some of the top universities in India are the Indian Institutes of Technology (IITs), Indian Institutes of Management (IIMs), and the University of Delhi.",
+                "India has several top universities, including the Indian Institutes of Technology (IITs) and the University of Delhi."
+            ]
+        },
+        {
+            "patterns": [
+                "study opportunities in India",
+                "higher education in India"
+            ],
+            "responses": [
+                "India offers a wide range of study opportunities for higher education, with universities and colleges providing diverse courses and programs.",
+                "India provides excellent higher education opportunities with numerous universities and colleges offering a variety of courses."
+            ]
+        },
+        {
+            "patterns": [
+                "Gitam University courses",
+                "programs offered at Gitam University",
+                "Gitam University academic offerings"
+            ],
+            "responses": [
+                "Gitam University offers a wide range of undergraduate, postgraduate, and doctoral programs in fields such as engineering, management, science, arts, and more.",
+                "At Gitam University, you can find diverse academic programs, including those in engineering, management, science, and the arts."
+            ]
+        },
+        {
+            "patterns": [
+                "Gitam University location",
+                "where is Gitam University situated",
+                "Gitam University campus"
+            ],
+            "responses": [
+                "Gitam University is located in Visakhapatnam, Andhra Pradesh, India. It has a beautiful and spacious campus that provides an ideal learning environment.",
+                "The campus of Gitam University is situated in the scenic city of Visakhapatnam, Andhra Pradesh, India."
+            ]
+        },
+        {
+            "patterns": [
+                "Gitam University admissions",
+                "how to apply to Gitam University",
+                "Gitam University application process"
+            ],
+            "responses": [
+                "To apply for programs at Gitam University, you can visit their official website and follow the admission guidelines provided. They usually have an online application process.",
+                "For admissions to Gitam University, you should check their official website for the application procedure and requirements."
+            ]
+        },
+        {
+            "patterns": [
+                "Gitam University ranking",
+                "where does Gitam University rank",
+                "Gitam University reputation"
+            ],
+            "responses": [
+                "Gitam University has a good reputation and is well-regarded in India. Its ranking may vary depending on the specific field or program.",
+                "Gitam University is known for its quality education, and its ranking can vary based on different parameters and criteria."
+            ]
+        }
+    ]
+}
