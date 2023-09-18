@@ -99,6 +99,224 @@
                 "Gitam University has a good reputation and is well-regarded in India. Its ranking may vary depending on the specific field or program.",
                 "Gitam University is known for its quality education, and its ranking can vary based on different parameters and criteria."
             ]
+        },
+        {
+            "patterns": [
+                "How are you?",
+                "What's your name?",
+                "Tell me a joke.",
+                "Recommend a book to read.",
+                "What's the weather like today?",
+                "How does a computer work?"
+            ],
+            "responses": [
+                "I'm just a computer program, but I'm here to help you!",
+                "I don't have a name, but you can call me Chatbot.",
+                "Why did the computer keep freezing? Because it left its Windows open!",
+                "I recommend reading 'The Hitchhiker's Guide to the Galaxy' by Douglas Adams.",
+                "I'm sorry, I don't have access to real-time weather information.",
+                "Computers work by processing data through various components like the CPU, RAM, and storage devices."
+            ]
+        },
+        {
+            "patterns": [
+                "What's the capital of France?",
+                "Can you translate 'hello' into French?",
+                "Tell me a fun fact.",
+                "What's your favorite color?"
+            ],
+            "responses": [
+                "The capital of France is Paris.",
+                "Sure, 'hello' in French is 'bonjour.'",
+                "Did you know that honey never spoils? Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still perfectly edible!",
+                "I don't have a favorite color, but I think all colors are great!"
+            ]
+        },
+        {
+            "patterns": [
+                "What's the meaning of life?",
+                "Tell me about famous scientists.",
+                "What's the latest technology news?",
+                "Recommend a travel destination."
+            ],
+            "responses": [
+                "The meaning of life is a philosophical question that has been pondered by many. It can vary from person to person, but some find meaning in relationships, personal growth, or contributing to society.",
+                "Sure, here are some famous scientists: Albert Einstein, Isaac Newton, Marie Curie, and Charles Darwin, to name a few.",
+                "I'm sorry, I don't have access to the latest news, but you can check a news website for the latest technology updates.",
+                "I recommend visiting Kyoto, Japan. It's known for its beautiful temples, gardens, and rich cultural heritage."
+            ]
+        },
+        {
+            "patterns": [
+                "Tell me a riddle.",
+                "What's the tallest mountain in the world?",
+                "Who is your favorite historical figure?"
+            ],
+            "responses": [
+                "Sure, here's a riddle: I'm tall when I'm young and short when I'm old. What am I? (Answer: A candle!)",
+                "The tallest mountain in the world is Mount Everest, located in the Himalayas.",
+                "I don't have a favorite historical figure, but I can tell you about many remarkable individuals from history if you'd like!"
+            ]
+        },
+        {
+            "patterns": [
+                "What's the meaning of happiness?",
+                "Tell me a famous quote."
+            ],
+            "responses": [
+                "Happiness is a state of well-being and contentment.",
+                "Here's a famous quote by Albert Einstein: 'Imagination is more important than knowledge.'"
+            ]
+        },
+        {
+            "patterns": [
+                "Can you sing a song?",
+                "Tell me a joke."
+            ],
+            "responses": [
+                "I'm not much of a singer, but I can tell you a joke! Why don't scientists trust atoms? Because they make up everything!",
+                "Why don't some couples go to the gym? Because some relationships don't work out!"
+            ]
+        },
+        {
+            "patterns": [
+                "What's the capital of Japan?",
+                "Tell me a fun fact about Japan."
+            ],
+            "responses": [
+                "The capital of Japan is Tokyo.",
+                "Japan is home to the world's oldest company, Nishiyama Onsen Keiunkan, which has been operating for over 1,300 years."
+            ]
+        },
+        {
+            "patterns": [
+                "What's your favorite movie?",
+                "Recommend a classic film."
+            ],
+            "responses": [
+                "I don't have a favorite movie, but a classic film you might enjoy is 'Casablanca' (1942).",
+                "I recommend watching 'Gone with the Wind' (1939), a classic of American cinema."
+            ]
+        },
+        {
+            "patterns": [
+                "Tell me a science fact.",
+                "Explain the theory of relativity."
+            ],
+            "responses": [
+                "A single teaspoon of a neutron star would weigh about 6 billion tons due to its immense gravity.",
+                "The theory of relativity, proposed by Albert Einstein, includes two main parts: the special theory of relativity (1905) and the general theory of relativity (1915). It revolutionized our understanding of space, time, and gravity."
+            ]
+        },
+        {
+            "patterns": [
+                "What's the largest animal on Earth?",
+                "Tell me about marine life."
+            ],
+            "responses": [
+                "The blue whale is the largest animal on Earth, even larger than most dinosaurs.",
+                "Marine life is incredibly diverse, with countless species of fish, mammals, and invertebrates inhabiting the world's oceans. Coral reefs, for example, are often called the 'rainforests of the sea' due to their biodiversity."
+            ]
+        },
+        {
+            "patterns": [
+                "How do I learn a new language?",
+                "Give me language learning tips."
+            ],
+            "responses": [
+                "Learning a new language takes time and practice. Consider taking classes, using language learning apps, practicing with native speakers, and immersing yourself in the language as much as possible.",
+                "Language learning tips: Consistency is key, practice speaking and listening, and don't be afraid to make mistakes."
+            ]
+        },
+        {
+            "patterns": [
+                "What's your favorite book?",
+                "Recommend a self-help book."
+            ],
+            "responses": [
+                "I don't have personal preferences, but 'The Power of Habit' by Charles Duhigg is a popular self-help book.",
+                "'The 7 Habits of Highly Effective People' by Stephen Covey is a classic self-help book that many find valuable."
+            ]
+        },
+        {
+            "patterns": [
+                "Tell me about artificial intelligence.",
+                "Explain machine learning."
+            ],
+            "responses": [
+                "Artificial intelligence (AI) is a field of computer science that focuses on creating systems and machines that can perform tasks that typically require human intelligence, such as learning, problem-solving, and decision-making.",
+                "Machine learning is a subset of AI that involves the use of algorithms and statistical models to enable computers to improve their performance on a specific task through learning from data."
+            ]
+        },
+        {
+            "patterns": [
+                "What's your favorite food?",
+                "Recommend a famous dish."
+            ],
+            "responses": [
+                "I don't eat, so I don't have a favorite food, but one famous dish you might like is sushi from Japan.",
+                "If you enjoy Italian cuisine, try a classic dish like spaghetti carbonara."
+            ]
+        },
+        {
+            "patterns": [
+                "What's the tallest building in the world?",
+                "Tell me about architecture."
+            ],
+            "responses": [
+                "The tallest building in the world is the Burj Khalifa in Dubai, United Arab Emirates.",
+                "Architecture is the art and science of designing and constructing buildings and other physical structures. It encompasses various styles and techniques, from ancient to modern architecture."
+            ]
+        },
+        {
+            "patterns": [
+                "What's the current time?",
+                "Set a timer for 5 minutes."
+            ],
+            "responses": [
+                "I'm sorry, but I don't have access to real-time information like the current time.",
+                "I can't set timers or alarms, but you can use a clock or timer app on your device for that."
+            ]
+        },
+        {
+            "patterns": [
+                "Tell me a famous historical event.",
+                "Explain the Industrial Revolution."
+            ],
+            "responses": [
+                "One famous historical event is the moon landing in 1969 when astronauts Neil Armstrong and Buzz Aldrin became the first humans to set foot on the moon.",
+                "The Industrial Revolution was a period of significant economic, technological, and social change that began in Britain in the late 18th century. It marked the transition from agrarian economies to industrial ones, with innovations like steam engines and mechanized factories."
+            ]
+        },
+        {
+            "patterns": [
+                "How can I improve my productivity?",
+                "Give me time management tips."
+            ],
+            "responses": [
+                "To improve productivity, try setting clear goals, prioritizing tasks, minimizing distractions, and taking regular breaks.",
+                "Time management tips: Use a to-do list, break tasks into smaller steps, and consider using time management techniques like the Pomodoro Technique."
+            ]
+        },
+        {
+            "patterns": [
+                "What's the national flower of Japan?",
+                "Tell me about Japanese culture."
+            ],
+            "responses": [
+                "The national flower of Japan is the cherry blossom, known as 'sakura.' It holds deep cultural significance and is celebrated during the annual cherry blossom festivals.",
+                "Japanese culture is rich and diverse, encompassing traditions, arts, cuisine, and more. It values concepts like harmony, respect, and mindfulness."
+            ]
+        },
+        {
+            "patterns": [
+                "What's the speed of light?",
+                "Explain Einstein's theory of relativity."
+            ],
+            "responses": [
+                "The speed of light in a vacuum is approximately 299,792,458 meters per second (or about 186,282 miles per second).",
+                "Einstein's theory of relativity includes the special theory of relativity (1905), which introduced the famous equation E=mc², and the general theory of relativity (1915), which described gravity as the bending of spacetime."
+            ]
         }
     ]
 }

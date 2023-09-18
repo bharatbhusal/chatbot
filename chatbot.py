@@ -1,9 +1,9 @@
 import json
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
 import numpy as np
-import random  # Import the random module
+import random
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 # Load the model
 model = tf.keras.models.load_model('chatbot_model')
@@ -26,10 +26,10 @@ tokenizer = Tokenizer(oov_token='<OOV>')
 tokenizer.fit_on_texts(patterns)
 word_index = tokenizer.word_index
 
-# Function to predict a random response from the array of responses
-def predict_response(text):
-    text = text.lower()
-    sequence = tokenizer.texts_to_sequences([text])
+# Function to predict a response based on user input
+def predict_response(user_input):
+    user_input = user_input.lower()
+    sequence = tokenizer.texts_to_sequences([user_input])
     padded_sequence = pad_sequences(sequence, maxlen=20, padding='post', truncating='post')
     predicted_probs = model.predict(np.array(padded_sequence))[0]
     predicted_response_index = np.argmax(predicted_probs)
