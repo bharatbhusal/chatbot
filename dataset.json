@@ -11,7 +11,9 @@
             "responses": [
                 "Hello!",
                 "Hi there!",
-                "Hey! How can I help you today?"
+                "Hey! How can I help you today?",
+                "Howdy doo! How may I help you?",
+                "Greetings! Is there anything you would like to ask?"
             ]
         },
         {
@@ -64,6 +66,7 @@
             ],
             "responses": [
                 "Gitam University offers a wide range of undergraduate, postgraduate, and doctoral programs in fields such as engineering, management, science, arts, and more.",
+                "At Gitam University, you can find diverse academic programs, including those in engineering, management, science, and the arts.",
                 "At Gitam University, you can find diverse academic programs, including those in engineering, management, science, and the arts."
             ]
         },
@@ -75,6 +78,7 @@
             ],
             "responses": [
                 "Gitam University is located in Visakhapatnam, Andhra Pradesh, India. It has a beautiful and spacious campus that provides an ideal learning environment.",
+                "The campus of Gitam University is situated in the scenic city of Visakhapatnam, Andhra Pradesh, India.",
                 "The campus of Gitam University is situated in the scenic city of Visakhapatnam, Andhra Pradesh, India."
             ]
         },
@@ -86,6 +90,7 @@
             ],
             "responses": [
                 "To apply for programs at Gitam University, you can visit their official website and follow the admission guidelines provided. They usually have an online application process.",
+                "For admissions to Gitam University, you should check their official website for the application procedure and requirements.",
                 "For admissions to Gitam University, you should check their official website for the application procedure and requirements."
             ]
         },
@@ -97,6 +102,7 @@
             ],
             "responses": [
                 "Gitam University has a good reputation and is well-regarded in India. Its ranking may vary depending on the specific field or program.",
+                "Gitam University is known for its quality education, and its ranking can vary based on different parameters and criteria.",
                 "Gitam University is known for its quality education, and its ranking can vary based on different parameters and criteria."
             ]
         },
