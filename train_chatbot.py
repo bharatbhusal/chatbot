@@ -1,8 +1,12 @@
 import json
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
 import numpy as np
+import random
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+
+# Load the model
+model = tf.keras.models.load_model('chatbot_model')
 
 # Load the dataset from dataset.json
 with open('dataset.json', 'r') as file:
@@ -15,31 +19,32 @@ responses = []
 for pair in data['pairs']:
     for pattern in pair['patterns']:
         patterns.append(pattern.lower())  # Add patterns
-        responses.append(pair['responses'][0])  # Add responses
+        responses.append(pair['responses'])  # Add responses as lists
 
 # Tokenize the patterns
 tokenizer = Tokenizer(oov_token='<OOV>')
 tokenizer.fit_on_texts(patterns)
 word_index = tokenizer.word_index
 
-# Create sequences and pad them
-sequences = tokenizer.texts_to_sequences(patterns)
-padded_sequences = pad_sequences(sequences, maxlen=20, padding='post', truncating='post')
+# Function to predict a response based on user input
+def predict_response(user_input):
+    user_input = user_input.lower()
+    sequence = tokenizer.texts_to_sequences([user_input])
+    padded_sequence = pad_sequences(sequence, maxlen=20, padding='post', truncating='post')
+    predicted_probs = model.predict(np.array(padded_sequence))[0]
+    predicted_response_index = np.argmax(predicted_probs)
+    
+    # Get a random response from the array of responses
+    random_response = random.choice(responses[predicted_response_index])
+    
+    return random_response
 
-# Define the model
-model = tf.keras.Sequential([
-    tf.keras.layers.Embedding(len(word_index) + 1, 128),
-    tf.keras.layers.LSTM(128),
-    tf.keras.layers.Dense(len(responses), activation='softmax')
-])
-
-# Compile the model
-model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-
-# Train the model
-X = np.array(padded_sequences)
-y = np.array([responses.index(response) for response in responses])
-model.fit(X, y, epochs=500, verbose=1)
-
-# Save the model
-model.save('chatbot_model')
+# Main chat loop
+print("Chatbot: Hello! How can I assist you today? (Type 'exit' to end)")
+while True:
+    user_input = input("You: ")
+    if user_input.lower() == 'exit':
+        print("Chatbot: Goodbye!")
+        break
+    response = predict_response(user_input)
+    print("Chatbot:", response)
