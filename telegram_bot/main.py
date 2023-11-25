@@ -1,7 +1,9 @@
 from dotenv import load_dotenv
 import os
 import telebot
+import random
 import datetime
+import pyjokes
 # Load environment variables from .env file
 if load_dotenv():
     print("Environment variables loaded successfully")
@@ -110,6 +112,8 @@ today = datetime.date.today()
 
 
 def return_string(day_num):
+    if day_num == 5 or day_num == 6:
+        return "It's Weekend"
     if day_num == 0:
         day = "Monday"
     elif day_num == 1:
@@ -123,30 +127,48 @@ def return_string(day_num):
 
     result = f"Routine for {day}:\n"
     for i, each in enumerate(routine_subjects[str(day_num)], 1):
-        result += f"{i}) {each} at {routine_time[i-1]} in bla\n"
+        result += f"{i}) {each} at {routine_time[i-1]}\n"
     return result
 
+# Returns a random joke
+joke_bag = [
+    "joke1",
+    "joke2",
+    "joke3",
+    "joke4",
+    "joke5",
+    "joke6",
+    "joke7",
+    "joke8",
+    "joke9",
+    "joke1",
+
+]
 
 # Define a dictionary to map user input to specific replies
 reply_dict = {
+    "creator": "LeCal is my creator",
     "hello": "Hello! How can I assist you today?",
+    "hi": "Hi! How are you?",
     "how are you": "I'm just a bot, but I'm here to help!",
     "good morning": "Good morning! 🌞",
     "good night": "Good night! 🌙",
     "thank you": "You're welcome! 😊",
     "bye": "Goodbye! Have a great day!",
     "routine": return_string(today.weekday()),
+    "love you": "Awww, you are the wind below my wings."
     # Add more user input and corresponding replies here
 }
 
 # Define a function to handle user input and provide replies
-
-
 def handle_user_input(user_input):
-    for key, value in reply_dict.items():
-        if key in user_input.lower():
-            # print(key, value)
-            return (value)
+    if "joke" in user_input:
+        return pyjokes.get_joke(language="en", category="neutral")
+    else:
+        for key, value in reply_dict.items():
+            if key in user_input.lower():
+                # print(key, value)
+                return (value)
     return "I'm not sure how to respond to that."
 
 

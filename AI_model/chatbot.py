@@ -27,17 +27,21 @@ tokenizer.fit_on_texts(patterns)
 word_index = tokenizer.word_index
 
 # Function to predict a response based on user input
+
+
 def predict_response(user_input):
     user_input = user_input.lower()
     sequence = tokenizer.texts_to_sequences([user_input])
-    padded_sequence = pad_sequences(sequence, maxlen=20, padding='post', truncating='post')
+    padded_sequence = pad_sequences(
+        sequence, maxlen=20, padding='post', truncating='post')
     predicted_probs = model.predict(np.array(padded_sequence))[0]
     predicted_response_index = np.argmax(predicted_probs)
-    
+
     # Get a random response from the array of responses
     random_response = random.choice(responses[predicted_response_index])
-    
+
     return random_response
+
 
 # Main chat loop
 print("Chatbot: Hello! How can I assist you today? (Type 'exit' to end)")

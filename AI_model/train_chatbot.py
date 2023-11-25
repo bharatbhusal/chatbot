@@ -24,7 +24,8 @@ word_index = tokenizer.word_index
 
 # Create sequences and pad them
 sequences = tokenizer.texts_to_sequences(patterns)
-padded_sequences = pad_sequences(sequences, maxlen=20, padding='post', truncating='post')
+padded_sequences = pad_sequences(
+    sequences, maxlen=20, padding='post', truncating='post')
 
 # Define the model
 model = tf.keras.Sequential([
@@ -34,7 +35,8 @@ model = tf.keras.Sequential([
 ])
 
 # Compile the model
-model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.compile(loss='sparse_categorical_crossentropy',
+              optimizer='adam', metrics=['accuracy'])
 
 # Train the model
 X = np.array(padded_sequences)

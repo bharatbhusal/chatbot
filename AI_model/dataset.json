@@ -2,6 +2,17 @@
     "pairs": [
         {
             "patterns": [
+                " ",
+                ""
+            ],
+            "responses": [
+                "Hello!",
+                "Hi there!",
+                "Hey! How can I help you today?"
+            ]
+        },
+        {
+            "patterns": [
                 "hi",
                 "hello",
                 "hey",
@@ -16,7 +27,7 @@
         },
         {
             "patterns": [
-                "tell me about Gitam University",
+                "hey, tell me about Gitam University",
                 "what can you tell me about Gitam University",
                 "Gitam University details"
             ],
