@@ -63,9 +63,38 @@ class MessageHandler:
     def reply_to_user_message(self, bot, message, reply_message):
         bot.reply_to(message, reply_message)
 
-# Example usage:
-# bot_handler = MessageHandler()
-# user_input = "routine"
-# reply_message = bot_handler.handle_user_input(user_input)
-# print(reply_message)
-# bot_handler.reply_to_user_message(bot_instance, user_message, reply_message)
+class BanHandler:
+    def ban_user_by_reply(self, bot, message):
+        # Ban the user who sent the message being replied to
+        user_id = message.from_user.id
+        chat_id = message.chat.id
+        # bot.ban_chat_member(user_id, chat_id)
+        # Replace the print statement with your actual banning logic
+        print(f"Banning user with ID {user_id} based on reply.")
+        return f"Banned user with ID {user_id} based on reply."
+
+    def ban_user_by_id(self, user_id):
+        # Ban the user with the provided user ID
+        # Replace the print statement with your actual banning logic
+        print(f"Banning user with ID {user_id} based on user ID.")
+        return f"Banned user with ID {user_id} based on user ID."
+
+    def ban_user_by_username(self, username):
+        # Ban the user with the provided username
+        # Replace the print statement with your actual banning logic
+        print(f"Banning user with username {username}.")
+        return f"Banned user with username {username}."
+
+    def mass_ban_user_by_id(self, user_ids):
+        # Ban multiple users by their user IDs
+        # Replace the print statement with your actual mass banning logic
+        for user_id in user_ids:
+            print(f"Banning user with ID {user_id}.")
+        return f"Mass banned {len(user_ids)} users by user ID."
+
+    def mass_ban_user_by_username(self, usernames):
+        # Ban multiple users by their usernames
+        # Replace the print statement with your actual mass banning logic
+        for username in usernames:
+            print(f"Banning user with username {username}.")
+        return f"Mass banned {len(usernames)} users by username."
