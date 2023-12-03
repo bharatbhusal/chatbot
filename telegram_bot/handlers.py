@@ -1,5 +1,9 @@
+import random
 import datetime
 import pyjokes
+import telebot
+import time
+import re
 
 class RoutineHandler:
     def __init__(self):
@@ -72,7 +76,6 @@ class RoutineHandler:
             result += f"{i}) {subject} at {class_time}\n"
         return result
 
-
 class JokeHandler:
     def get_joke(self):
         try:
@@ -101,3 +104,73 @@ class GeneralChatHandler:
             if key in user_input:
                 return value
         return "I'm not sure how to respond to that."
+
+
+
+class MessageHandler:
+    def __init__(self, bot):
+        self.bot = bot
+        self.user_verification_status = {}
+
+    def generate_addition_question(self):
+        num1 = random.randint(1, 10)
+        num2 = random.randint(1, 10)
+        correct_answer = num1 + num2
+        return f"What is the sum of {num1} and {num2}?", str(correct_answer)
+
+    def handle_new_members(self, message):
+        chat_id = message.chat.id
+        new_members = message.new_chat_members
+
+        for member in new_members:
+            user_id = member.id
+            first_name = member.first_name
+
+            # Generate an addition question
+            question, correct_answer = self.generate_addition_question()
+
+            # Store the correct answer for verification
+            self.user_verification_status[user_id] = correct_answer
+
+            # Send the welcome message with the addition question
+            welcome_message = (
+                f"Welcome, {first_name}! Thanks for joining!\n"
+                f"Please answer the following question within 60 seconds to enter the group:\n\n"
+                f"{question}"
+            )
+            sent_message = self.bot.send_message(chat_id, welcome_message)
+
+            # Set a timer for 60 seconds
+            time.sleep(60)
+
+            # Check if the user has provided a correct answer during the time window
+            if user_id in self.user_verification_status:
+                # Ban the user if they haven't provided a correct answer
+                self.bot.kick_chat_member(chat_id, user_id)
+                self.bot.send_message(chat_id, f"User {first_name} (@{member.username}) has been banned for failing verification.")
+                del self.user_verification_status[user_id]  # Remove user from verification status
+            else:
+                # Allow the user to send messages
+                self.bot.send_message(chat_id, "Verification successful! You can now send messages.")
+
+    def handle_text_messages(self, message):
+        user_id = message.from_user.id
+        chat_id = message.chat.id
+
+        # Check if the user has been verified
+        if user_id in self.user_verification_status:
+            # Check if the message contains only numeric values
+            if not re.match("^\d+$", message.text.strip()):
+                # Delete the message that contains non-numeric values
+                self.bot.delete_message(chat_id, message.message_id)
+            else:
+                # Get the correct answer for the user
+                correct_answer = self.user_verification_status[user_id]
+
+                # Check if the user's response is correct
+                if message.text.strip() == correct_answer:
+                    self.bot.send_message(chat_id, "Verification successful! You can now send messages.")
+                    # Allow the user to send other texts by removing them from the verification status
+                    del self.user_verification_status[user_id]
+                else:
+                    self.bot.delete_message(chat_id, message.message_id)

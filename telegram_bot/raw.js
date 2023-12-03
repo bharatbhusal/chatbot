@@ -126,3 +126,20 @@ const data = {
         'text': 'hi leca'
     }
 }
+
+
+
+
+// @bot.message_handler(func=lambda message: "button" in message.text.lower())
+// def handle_message(message):
+//     chat_id = message.chat.id
+
+//     # Create an InlineKeyboardButton with a link
+//     button = telebot.types.InlineKeyboardButton("Click Here", url="http://www.github.com")
+
+//     # Create an InlineKeyboardMarkup with the button
+//     markup = telebot.types.InlineKeyboardMarkup()
+//     markup.add(button)
+
+//     # Send the message with the inline keyboard
+//     bot.send_message(chat_id, "Click the button to visit the link:", reply_markup=markup)
