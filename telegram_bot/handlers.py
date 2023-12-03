@@ -1,39 +1,90 @@
 import datetime
 import pyjokes
 
-class MessageHandler:
+class RoutineHandler:
     def __init__(self):
         self.day_subject = {
             "Monday": [
-                "Hacking", "Cryptography", "CLAD", "CLAD", "DAA", "Lunch", "AI", "No class",
+                ("Hacking", "8:00-8:50"),
+                ("Cryptography", "9:00-9:50"),
+                ("CLAD", "10:00-10:50"),
+                ("CLAD", "11:00-11:50"),
+                ("DAA", "12:00-12:50"),
+                ("Lunch", "13:00-13:50"),
+                ("AI", "14:00-14:50"),
+                ("No class", "15:00-15:50"),
             ],
             "Tuesday": [
-                "AI", "No Class", "No Class", "No Class", "2D Animation", "Lunch", "AI lab", "AI lab",
+                ("AI", "8:00-8:50"),
+                ("No Class", "9:00-9:50"),
+                ("No Class", "10:00-10:50"),
+                ("No Class", "11:00-11:50"),
+                ("2D Animation", "12:00-12:50"),
+                ("Lunch", "13:00-13:50"),
+                ("AI lab", "14:00-14:50"),
+                ("AI lab", "15:00-15:50"),
             ],
             "Wednesday": [
-                "Cryptography", "Hacking", "No Class", "No Class", "DAA", "Lunch", "No Class", "No Class",
+                ("Cryptography", "8:00-8:50"),
+                ("Hacking", "9:00-9:50"),
+                ("No Class", "10:00-10:50"),
+                ("No Class", "11:00-11:50"),
+                ("DAA", "12:00-12:50"),
+                ("Lunch", "13:00-13:50"),
+                ("No Class", "14:00-14:50"),
+                ("No Class", "15:00-15:50"),
             ],
             "Thursday": [
-                "No Class", "Ai", "No Class", "No Class", "2D Animation", "Lunch", "Cryptography", "Hacking",
+                ("No Class", "8:00-8:50"),
+                ("Ai", "9:00-9:50"),
+                ("No Class", "10:00-10:50"),
+                ("No Class", "11:00-11:50"),
+                ("2D Animation", "12:00-12:50"),
+                ("Lunch", "13:00-13:50"),
+                ("Cryptography", "14:00-14:50"),
+                ("Hacking", "15:00-15:50"),
             ],
             "Friday": [
-                "Hacking Lab", "Hacking Lab", "2D Animation", "No Class", "DAA", "Lunch", "Design Thinking", "Design Thinking",
+                ("Hacking Lab", "8:00-8:50"),
+                ("Hacking Lab", "9:00-9:50"),
+                ("2D Animation", "10:00-10:50"),
+                ("No Class", "11:00-11:50"),
+                ("DAA", "12:00-12:50"),
+                ("Lunch", "13:00-13:50"),
+                ("Design Thinking", "14:00-14:50"),
+                ("Design Thinking", "15:00-15:50"),
             ]
         }
-
-        self.class_time = [
-            "8:00-8:50", "9:00-9:50", "10:00-10:50", "11:00-11:50",
-            "12:00-12:50", "13:00-13:50", "14:00-14:50", "15:00-15:50",
-        ]
 
     def get_today(self):
         return datetime.date.today().strftime("%A")
 
-    def return_routine(self, day):
-        result = f"Routine for {day}:\n"
-        for i, each in enumerate(self.day_subject[day], 1):
-            result += f"{i}) {each} at {self.class_time[i-1]}\n"
+    def return_routine(self):
+        today = self.get_today()
+        # today = "Monday"
+        try:
+            subjects = self.day_subject[today]
+        except KeyError:
+            return f"Routine not available for {today}."
+        
+        result = f"Routine for {today}:\n"
+        for i, (subject, class_time) in enumerate(self.day_subject[today], 1):
+            result += f"{i}) {subject} at {class_time}\n"
         return result
+
+
+class JokeHandler:
+    def get_joke(self):
+        try:
+            return pyjokes.get_joke(language="en", category="neutral")
+        except Exception as e:
+            return "Joker is on leave."
+
+class ChatHandler:
+    def __init__(self):
+        # Use instances of other handlers
+        self.routine_handler = RoutineHandler()
+        self.joke_handler = JokeHandler()
 
     # Define a dictionary to map user input to specific replies
     reply_dict = {
@@ -51,50 +102,11 @@ class MessageHandler:
 
     def handle_user_input(self, user_input):
         if "joke" in user_input:
-            return pyjokes.get_joke(language="en", category="neutral")
+            return self.joke_handler.get_joke()
         elif "routine" in user_input:
-            return self.return_routine(self.get_today())
+            return self.routine_handler.return_routine(self.routine_handler.get_today())
         else:
             for key, value in self.reply_dict.items():
                 if key in user_input:
                     return value
         return "I'm not sure how to respond to that."
-
-    def reply_to_user_message(self, bot, message, reply_message):
-        bot.reply_to(message, reply_message)
-
-class BanHandler:
-    def ban_user_by_reply(self, bot, message):
-        # Ban the user who sent the message being replied to
-        user_id = message.from_user.id
-        chat_id = message.chat.id
-        # bot.ban_chat_member(user_id, chat_id)
-        # Replace the print statement with your actual banning logic
-        print(f"Banning user with ID {user_id} based on reply.")
-        return f"Banned user with ID {user_id} based on reply."
-
-    def ban_user_by_id(self, user_id):
-        # Ban the user with the provided user ID
-        # Replace the print statement with your actual banning logic
-        print(f"Banning user with ID {user_id} based on user ID.")
-        return f"Banned user with ID {user_id} based on user ID."
-
-    def ban_user_by_username(self, username):
-        # Ban the user with the provided username
-        # Replace the print statement with your actual banning logic
-        print(f"Banning user with username {username}.")
-        return f"Banned user with username {username}."
-
-    def mass_ban_user_by_id(self, user_ids):
-        # Ban multiple users by their user IDs
-        # Replace the print statement with your actual mass banning logic
-        for user_id in user_ids:
-            print(f"Banning user with ID {user_id}.")
-        return f"Mass banned {len(user_ids)} users by user ID."
-
-    def mass_ban_user_by_username(self, usernames):
-        # Ban multiple users by their usernames
-        # Replace the print statement with your actual mass banning logic
-        for username in usernames:
-            print(f"Banning user with username {username}.")
-        return f"Mass banned {len(usernames)} users by username."
