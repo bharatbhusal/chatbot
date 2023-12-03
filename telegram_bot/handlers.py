@@ -80,33 +80,24 @@ class JokeHandler:
         except Exception as e:
             return "Joker is on leave."
 
-class ChatHandler:
+class GeneralChatHandler:
     def __init__(self):
-        # Use instances of other handlers
-        self.routine_handler = RoutineHandler()
-        self.joke_handler = JokeHandler()
-
     # Define a dictionary to map user input to specific replies
-    reply_dict = {
-        "creator": "LeCal is my creator",
-        "hello": "Hello! How can I assist you today?",
-        "hi": "Hi! How are you?",
-        "how are you": "I'm just a bot, but I'm here to help!",
-        "good morning": "Good morning! 🌞",
-        "good night": "Good night! 🌙",
-        "thank you": "You're welcome! 😊",
-        "bye": "Goodbye! Have a great day!",
-        "love you": "Awww, you are the wind below my wings.",
-        # Add more user input and corresponding replies here
-    }
+        self.reply_dict = {
+            "creator": "LeCal is my creator",
+            "hello": "Hello! How can I assist you today?",
+            "hi": "Hi! How are you?",
+            "how are you": "I'm just a bot, but I'm here to help!",
+            "good morning": "Good morning! 🌞",
+            "good night": "Good night! 🌙",
+            "thank you": "You're welcome! 😊",
+            "bye": "Goodbye! Have a great day!",
+            "love you": "Awww, you are the wind below my wings.",
+            # Add more user input and corresponding replies here
+        }
 
     def handle_user_input(self, user_input):
-        if "joke" in user_input:
-            return self.joke_handler.get_joke()
-        elif "routine" in user_input:
-            return self.routine_handler.return_routine(self.routine_handler.get_today())
-        else:
-            for key, value in self.reply_dict.items():
-                if key in user_input:
-                    return value
+        for key, value in self.reply_dict.items():
+            if key in user_input:
+                return value
         return "I'm not sure how to respond to that."

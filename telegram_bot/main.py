@@ -1,6 +1,6 @@
 # main.py
 from config import load_environment, get_bot
-from handlers import  JokeHandler, RoutineHandler
+from handlers import  JokeHandler, RoutineHandler, GeneralChatHandler
 
 def main():
     """
@@ -16,7 +16,9 @@ def main():
         # Create instances of handlers
         joke_handler = JokeHandler()
         routine_handler = RoutineHandler()
+        general_chat_handler = GeneralChatHandler()
         
+        # Register joke message handler
         @bot.message_handler(func=lambda message: "joke" in message.text.lower())
         def handle_joke_replies(message):
             """
@@ -25,8 +27,7 @@ def main():
             reply_message = joke_handler.get_joke()
             bot.reply_to(message, reply_message)
         
-        
-        # Register message handler
+        # Register routine message handler
         @bot.message_handler(func=lambda message: "routine" in message.text.lower())
         def handle_routine_replies(message):
             """
@@ -34,7 +35,15 @@ def main():
             """
             reply_message = routine_handler.return_routine()
             bot.reply_to(message, reply_message)
-
+        
+        # Register general message handler
+        @bot.message_handler(func=lambda message: "leca" in message.text.lower())
+        def handle_routine_replies(message):
+            """
+            Handle incoming messages containing the word "leca".
+            """
+            reply_message = general_chat_handler.handle_user_input(message.text)
+            bot.reply_to(message, reply_message)
 
 
         print("The bot is live")
